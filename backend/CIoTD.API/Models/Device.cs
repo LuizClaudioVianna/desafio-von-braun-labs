@@ -2,6 +2,7 @@
 {
     public class Device
     {
+        public string Id { get; set; }
         public string Identifier { get; set; }
         public string Description { get; set; }
         public string Manufacturer { get; set; }
