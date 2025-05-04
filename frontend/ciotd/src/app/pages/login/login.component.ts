@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { RequestLogin } from '../../resources/models/request-login';
 import { LoginService } from '../../resources/services/login.service';
 import { AlertService } from '../../resources/services/alert.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,12 +22,11 @@ export class LoginComponent {
   statusString: string = "";
   messageTitle: string = "";
 
-  constructor(private loginService: LoginService, private alertService: AlertService) { }
+  constructor(private loginService: LoginService, private alertService: AlertService, private router: Router) { }
 
   doLogin(): void {
     this.loginService.doLogin(this.requestLogin).subscribe(data => {
-      this.alertService.info('Funcionalidade ainda não implementada, porém já recebendo o token:\n' + data.token);
-      console.log(data);
+      this.router.navigate(['dashboard']);
     },
       (httpError) => {
         this.statusString = httpError.status.toString();
