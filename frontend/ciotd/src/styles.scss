@@ -2,6 +2,14 @@
 $background-color: #252525 !important;
 $font-color:#fff !important;
 
+body{
+    background-image: url("./app/assets/background-devices.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.85;
+}
+
 .p-card{
     background-color: $background-color;
     color: $font-color;

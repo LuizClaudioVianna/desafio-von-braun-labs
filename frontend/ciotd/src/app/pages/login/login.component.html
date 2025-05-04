@@ -1,10 +1,10 @@
-<div class="p-grid flex justify-content-center">
+<div class="p-grid flex justify-content-center p-grid-login">
     <div class="col-12 md:col-6 lg:col-6">
         <p-card>
             <div class="p-grid">
                 <div class="col-12 text-center">
-                    <p><i class="fas fa-coffee fa-4x" style="color: #007ad9;"></i></p>
-                    <h2 >Login Community IoT Devices</h2>
+                    <p><i class="fa-solid fa-plug fa-4x" style="color: #007ad9;"></i></p>
+                    <h2>Login Community IoT Devices</h2>
                 </div>
                 <div class="col-12">
                     <label for="">Usuário:</label>
@@ -15,8 +15,9 @@
                     <input type="text" pInputText class="col-12" />
                 </div>
                 <div class="col-12">
-                    <!-- (click)="doLogin()" -->
-                    <button pButton type="button" label="Entrar" class="block-button"></button>
+                    <button pButton
+                    severity="info" 
+                    (click)="doLogin()" type="button" label="Entrar" class="block-button"></button>
                 </div>
             </div>
         </p-card>
