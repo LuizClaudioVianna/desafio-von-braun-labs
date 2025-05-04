@@ -83,6 +83,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(opt => {
+    opt.WithOrigins("http://localhost:4200");
+    opt.AllowAnyMethod();
+    opt.AllowAnyHeader();
+});
+
 app.UseHttpsRedirection();
 
 // Adicionar middleware de autenticação ANTES da autorização

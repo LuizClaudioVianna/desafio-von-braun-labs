@@ -4,11 +4,10 @@ import { RouterOutlet } from '@angular/router';
 import {ButtonModule} from 'primeng/button'
 import { CardModule } from 'primeng/card';
 
-import { LoginComponent } from './pages/login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonModule,CardModule, LoginComponent],
+  imports: [RouterOutlet, ButtonModule,CardModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
