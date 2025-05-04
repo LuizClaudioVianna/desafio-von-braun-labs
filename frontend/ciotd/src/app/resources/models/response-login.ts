@@ -1,7 +1,7 @@
 export class ResponseLogin {
-    jwt: string
+    token: string
 
-    constructor(jwt: string) {
-        this.jwt = jwt;
+    constructor(token: string) {
+        this.token = token;
     }
 }

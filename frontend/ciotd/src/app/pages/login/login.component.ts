@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { RequestLogin } from '../../resources/models/request-login';
 import { LoginService } from '../../resources/services/login.service';
+import { AlertService } from '../../resources/services/alert.service';
 
 
 @Component({
@@ -17,15 +18,20 @@ import { LoginService } from '../../resources/services/login.service';
 })
 export class LoginComponent {
   requestLogin: any = {};
+  statusString: string = "";
+  messageTitle: string = "";
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private alertService: AlertService) { }
 
   doLogin(): void {
     this.loginService.doLogin(this.requestLogin).subscribe(data => {
+      this.alertService.info('Funcionalidade ainda não implementada, porém já recebendo o token:\n' + data.token);
       console.log(data);
     },
-      error => {
-        console.error(error)
+      (httpError) => {
+        this.statusString = httpError.status.toString();
+        this.messageTitle = httpError.error.title;
+        this.alertService.error(this.messageTitle, this.statusString)
       })
   }
 
