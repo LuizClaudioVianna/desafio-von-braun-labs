@@ -26,7 +26,7 @@ export class LoginComponent {
 
   doLogin(): void {
     this.loginService.doLogin(this.requestLogin).subscribe(data => {
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['devices-list']);
     },
       (httpError) => {
         this.statusString = httpError.status.toString();
