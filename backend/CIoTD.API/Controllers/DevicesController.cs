@@ -1,6 +1,7 @@
 ﻿using CIoTD.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MinhaApiComJwt.Controllers
 {
@@ -62,6 +63,11 @@ namespace MinhaApiComJwt.Controllers
             }
         }
 
-        // Adicione outros métodos para POST, PUT, DELETE conforme necessário
+        [HttpPost]
+        public IActionResult ExecuteTelnet([FromBody] ComunicationTelnetDto Dto)
+        {
+            
+            return Ok(new TokenDto { Token = Dto.Name });
+        }
     }
 }

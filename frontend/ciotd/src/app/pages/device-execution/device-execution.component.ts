@@ -7,6 +7,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Router } from '@angular/router';
 import { ICommand } from '../../resources/interfaces/command.interface';
 import { Parameter } from '../../resources/interfaces/parameter.interface';
+import { ComunicationTelnetService } from '../../resources/services/comunication-telnet.service';
+import { AlertService } from '../../resources/services/alert.service';
 
 @Component({
   selector: 'app-device-execution',
@@ -15,26 +17,34 @@ import { Parameter } from '../../resources/interfaces/parameter.interface';
   templateUrl: './device-execution.component.html',
   styleUrls: ['./device-execution.component.scss'],
 })
-export class DeviceExecutionComponent implements OnInit {
+export class DeviceExecutionComponent {
   @Input() command: ICommand | null = null;
   selectedCommandIndex: number | null = null;
   parameter: Parameter = { name: '', description: '', type: '' };
+  statusString: string = "";
+  messageTitle: string = "";
 
-  constructor(private router: Router) {
-    // Forçar a navegação se o estado estiver vazio (acesso direto à rota)
+  constructor(private router: Router,
+    private comunicationTelnet: ComunicationTelnetService,
+    private alertService: AlertService) {
+    
     if (this.router.getCurrentNavigation()?.extras?.state?.['item']) {
       this.command = this.router.getCurrentNavigation()?.extras?.state?.['item'] as any;
     } else {
-      // Redirecionar para a lista ou exibir uma mensagem de erro
+    
       this.router.navigate(['/device-details']);
     }
   }
 
-  ngOnInit(): void {
-    console.log('Item recebido via state:', this.command?.command);
-  }
-
-  doAddParams() {
-    console.log(this.parameter);
+  doSendParams() {
+    this.comunicationTelnet.doAComunicationTelnet(this.parameter).subscribe(data => {
+      this.messageTitle = data.token;
+      this.alertService.success(this.messageTitle)
+      console.log(data);
+    },
+      (httpError) => {
+        this.messageTitle = httpError.name;
+        this.alertService.error(this.messageTitle, this.statusString)
+      });
   }
 }
