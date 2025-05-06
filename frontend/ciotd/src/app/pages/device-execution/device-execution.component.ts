@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { ICommand } from '../../resources/interfaces/device.interface';
-import { Router } from '@angular/router';
-
-import { CardModule } from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { Router } from '@angular/router';
+import { ICommand } from '../../resources/interfaces/command.interface';
+import { Parameter } from '../../resources/interfaces/parameter.interface';
 
 @Component({
   selector: 'app-device-execution',
-  imports: [CardModule, ButtonModule, CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, ButtonModule, CardModule, InputTextModule],
   templateUrl: './device-execution.component.html',
-  styleUrl: './device-execution.component.scss'
+  styleUrls: ['./device-execution.component.scss'],
 })
 export class DeviceExecutionComponent implements OnInit {
-  command: ICommand | null = null;
+  @Input() command: ICommand | null = null;
+  selectedCommandIndex: number | null = null;
+  parameter: Parameter = { name: '', description: '', type: '' };
 
   constructor(private router: Router) {
     // Forçar a navegação se o estado estiver vazio (acesso direto à rota)
@@ -25,9 +30,11 @@ export class DeviceExecutionComponent implements OnInit {
     }
   }
 
-
   ngOnInit(): void {
-    console.log('Item recebido via state:', this.command);
+    console.log('Item recebido via state:', this.command?.command);
   }
 
+  doAddParams() {
+    console.log(this.parameter);
+  }
 }

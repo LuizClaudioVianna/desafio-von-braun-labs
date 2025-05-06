@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ICommand, IDevice } from '../../resources/interfaces/device.interface';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+
+import { IDevice } from '../../resources/interfaces/device.interface';
+import { ICommand } from '../../resources/interfaces/command.interface';
 
 @Component({
   selector: 'app-device-details',

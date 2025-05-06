@@ -1,24 +1,92 @@
-<div class="p-grid flex justify-content-center p-grid-login">
+<!-- <div class="p-grid flex justify-content-center p-grid-login">
     <div class="col-12 md:col-12 lg:col-12">
         <p-card>
-            <div class="p-grid">
+            <div class="formgrid grid">
                 <div class="col-12 text-center">
                     <p><i class="fa-solid fa-plug fa-4x" style="color: #007ad9;"></i></p>
                     <h2>Device Execution</h2>
                 </div>
-                <div class="col-12">
-                    <label for="">Command:</label>
-                    <input type="text" pInputText class="col-12" />
+                <div class="field col-12 md:col-2">
+                    <label for="">Operation:</label>
+                    <h4>{{command?.operation}}</h4>
                 </div>
-                <div class="col-12">
-                    <label for="">Command:</label>
-                    <input type="text" pInputText class="col-12" />
+                <div class="field col-12 md:col-4">
+                    <label for="">Description:</label>
+                    <h4>{{command?.description}}</h4>
                 </div>
-                
-                <div class="col-12">
-                    <!-- <button pButton
-                    severity="info" 
-                    (click)="doLogin()" type="button" label="Entrar" class="block-button"></button> -->
+                <div class="field col-12 md:col-4">
+                    <label for="">Result:</label>
+                    <h4>{{command?.result}}</h4>
+                </div>
+                <div class="field col-12 md:col-6">
+                    <label for="">Parâmetros:</label>
+                    <input type="text" [(ngModel)]="inputParametro"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+
+            <div class="col-4">
+                <p-button label="Adicionar parâmetro" (click)="doAddParams()" severity="info" class="block-button" />
+
+                <h3>Conteúdo do Array:</h3>
+                <ul>
+                    <li *ngFor="let item of command?.parameters; let i = index">
+                        {{ i + 1 }}: {{ item }}
+                    </li>
+                </ul>
+            </div>
+        </p-card>
+    </div>
+</div> -->
+
+<div class="p-grid flex justify-content-center p-grid-login">
+    <div class="col-12 md:col-12 lg:col-12">
+        <p-card>
+            <div class="formgrid grid">
+                <div class="col-12 text-center">
+                    <p><i class="fa-solid fa-plug fa-4x" style="color: #007ad9;"></i></p>
+                    <h2>Device Execution</h2>
+                </div>
+                <div class="field col-12 md:col-2">
+                    <label for="">Operation:</label>
+                    <h4>{{command?.description}}</h4>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label for="">Description:</label>
+                    <h4>{{command?.description}}</h4>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label for="">Result:</label>
+                    <h4>{{command?.result}}</h4>
+                </div>
+                <div class="field col-3 md:col-4">
+                    <label for="">Nome Parâmetro:</label>
+                    <input type="text" [(ngModel)]="parameter.name"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-3 md:col-4">
+                    <label for="">Descrição:</label>
+                    <input type="text" [(ngModel)]="parameter.description"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-3 md:col-4">
+                    <label for="">Tipo:</label>
+                    <input type="text" [(ngModel)]="parameter.type"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-3 md:col-4">
+                    <label for="">Máximo:</label>
+                    <input type="text" [(ngModel)]="parameter.maximum"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-3 md:col-4">
+                    <label for="">Mínimo:</label>
+                    <input type="text" [(ngModel)]="parameter.minimum"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col-3 md:col-4">
+                    <p-button label="Adicionar parâmetro" (click)="doAddParams()" severity="info"
+                        class="block-button" />
                 </div>
             </div>
         </p-card>

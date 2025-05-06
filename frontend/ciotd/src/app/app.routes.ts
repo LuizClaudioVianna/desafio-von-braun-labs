@@ -9,15 +9,17 @@ export const routes: Routes = [
     { path: '', component: LoginComponent },
     {
         path: 'devices-list',
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: DevicesListComponent
     },
     {
         path: 'device-details',
+        canActivate: [AuthGuardService],
         component: DeviceDetailsComponent
     },
     {
         path: 'device-execution',
+        //canActivate: [AuthGuardService],
         component: DeviceExecutionComponent
     },
     {
