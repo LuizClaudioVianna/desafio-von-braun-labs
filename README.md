@@ -6,7 +6,7 @@
   1.2 - Criei um arquivo db.json e coloquei nesse servidor, como chave principal "device" correspondendo assim o endpoint "/device"  
   1.3 - Coloquei para executar o comando "json-server --watch db.json --port 3000"  
 
-**Backend C# - API Consumidora**
+**Backend C# - API Consumidora**  
 2. Para criação de um Backend a ser desenvolvido em AspnetCore 8.0 C SHARP  
    2.1 - Utilizei na solução "CIoTD" com a pretenção de separação de responsabilidades sendo:  
    2.2 - Projeto ASP.NET Core Web API  
