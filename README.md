@@ -39,9 +39,7 @@
    2.6.1 - Localização do contexto da aplicação, classe onde ORM (EntityFramework) realiza a criação do usuário **(Username = "admin" e Password = "admin123!")** em memória para permitir o login na aplicação.  
    
 3. **Frontend Angular 19 - Solução Frontend Community IoT Device - CIoTD**
-   ***Versões necessárias***:
-    Node: 
-  ***Pacotes instalados***:  
+   ***Pacotes instalados***:  
    a) **PrimeNg** - https://primeng.org/ - Reutilização de components de forma mais rápida, modular e fácil  
    b) **PrimeFlex** - https://primeflex.org/ - Renderização de layout de tela responsiva  
    c) **SweetAlert** - https://sweetalert2.github.io/ - Utilização de alertas customizáveis e simples utilização
