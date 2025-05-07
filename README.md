@@ -5,6 +5,6 @@ Para essa solução utilizamos as seguintes etapas:
   1.1 - Criei um servidor local com JsonServer com um comando "npm install -g json-server"
   1.2 - Criei um arquivo db.json e coloquei nesse servidor, como chave principal "device" correspondendo assim o endpoint "/device"
   1.3 - Coloquei para executar o comando "json-server --watch db.json --port 3000"
-2. Criação de um Backend desenvolvido em AspnetCore 8.0 c#;
+2. Criação de um Backend desenvolvido em AspnetCore 8.0 c#
   2.1 - 
-4. Criação Frontend será desenvolvido em angular 19;
+4. Criação Frontend será desenvolvido em angular 19
