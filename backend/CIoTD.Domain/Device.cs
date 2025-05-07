@@ -8,6 +8,5 @@
         public string Manufacturer { get; set; }
         public string Url { get; set; }
         public List<object> Commands { get; set; }
-        // Adicione outras propriedades conforme necessário
     }
 }

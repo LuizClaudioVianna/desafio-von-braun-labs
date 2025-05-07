@@ -1,7 +1,7 @@
 ﻿using CIoTD.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CIoTD.API.Data
+namespace CIoTD.Infra.Context
 {
     public class AppDbContext : DbContext
     {
@@ -19,7 +19,7 @@ namespace CIoTD.API.Data
                 {
                     Id = 1,
                     Username = "admin",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"), // Hash da senha
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123!"), // Hash da senha
                     Role = "Admin"
                 }
             );
