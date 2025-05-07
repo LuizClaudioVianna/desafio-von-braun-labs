@@ -38,7 +38,9 @@
  2.6 - Projeto Infra **(CIoTD.Infra)**  
    2.6.1 - Localização do contexto da aplicação, classe onde ORM (EntityFramework) realiza a criação do usuário **(Username = "admin" e Password = "admin123!")** em memória para permitir o login na aplicação.  
    
-3. **Frontend Angular 19 - Solução Frontend Community IoT Device - CIoTD**  
+3. **Frontend Angular 19 - Solução Frontend Community IoT Device - CIoTD**
+   ***Versões necessárias***:
+    Node: 
   ***Pacotes instalados***:  
    a) **PrimeNg** - https://primeng.org/ - Reutilização de components de forma mais rápida, modular e fácil  
    b) **PrimeFlex** - https://primeflex.org/ - Renderização de layout de tela responsiva  
@@ -52,7 +54,7 @@
     + interfaces - Todos os modelos de tela que fazem referencia ao negócio da aplicação;  
     + models - Foram as classes criadas para serem usadas nas requisições;  
     + services - Localização das classes que executam as chamadas http para a **solução API consumidora CIoTD**;  
-   c) A configuração das rotas da aplição está no caminho "**app/app.config.ts**";  
+   c) A configuração das rotas da aplição está no caminho "**app/app.routes.ts**";  
    d) Nessa versão do angular foi necessária a configuração dos pacotes instalados e essa configuração fica no caminho "**app/app.config.ts**"
 
 
