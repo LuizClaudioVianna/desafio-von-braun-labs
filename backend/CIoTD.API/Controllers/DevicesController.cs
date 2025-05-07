@@ -1,11 +1,11 @@
 ﻿using CIoTD.API.Models;
+using CIoTD.Application.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace MinhaApiComJwt.Controllers
 {
-    [Authorize] // Exige autenticação para acessar este controller
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class DevicesController : ControllerBase

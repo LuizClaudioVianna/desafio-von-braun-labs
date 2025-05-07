@@ -1,4 +1,5 @@
 ﻿using CIoTD.API.Models;
+using CIoTD.Application.Dtos;
 using CIoTD.Infra.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

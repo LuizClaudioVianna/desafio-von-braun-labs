@@ -1,4 +1,4 @@
-﻿namespace CIoTD.API.Models
+﻿namespace CIoTD.Application.Dtos
 {
     public class ComunicationTelnetDto
     {
