@@ -10,10 +10,10 @@
    2.1 - Utilizei na solução "CIoTD" com a pretenção de separação de responsabilidades sendo:  
    2.2 - Projeto ASP.NET Core Web API  
      2.2.1 - Pacotes instalados:  
-           * **Microsoft.AspNetCore.Authentication.JwtBearer** e **System.IdentityModel.Tokens.Jwt**, pois com essas bibliotecas torna-se possível a funcionalidade de autenticação com JWT Bearer e a criação e manipulação de tokens JWT respectivamente;  
-           * **Microsoft.AspNetCore.Identity.EntityFrameworkCore** Com instalação desse ORM temos as classes necessárias para gerenciar Usuários, Roles e a autenticação dos mesmo no sistema, para simplificar utilizamos outra biblioteca **Microsoft.EntityFrameworkCore.InMemory** que é um provedor de Entity Framework Core que usa um banco de dados em memória;  
-           * Também inclui a biblioteca **Microsoft.Extensions.Http** que fornece abstrações para trabalhar com requisições HTTP;  
-           * **BCrypt.Net-Next** para armazenamento e criptografia de senhas;
+           * **Microsoft.AspNetCore.Authentication.JwtBearer** e **System.IdentityModel.Tokens.Jwt**, pois com essas bibliotecas torna-se possível a funcionalidade de autenticação com JWT Bearer e a criação e manipulação de tokens JWT respectivamente  
+           * **Microsoft.AspNetCore.Identity.EntityFrameworkCore** Com instalação desse ORM temos as classes necessárias para gerenciar Usuários, Roles e a autenticação dos mesmo no sistema, para simplificar utilizamos outra biblioteca **Microsoft.EntityFrameworkCore.InMemory** que é um provedor de Entity Framework Core que usa um banco de dados em memória  
+           * Também inclui a biblioteca **Microsoft.Extensions.Http** que fornece abstrações para trabalhar com requisições HTTP  
+           * **BCrypt.Net-Next** para armazenamento e criptografia de senhas  
    2.2.2 - **AuthController** - Endpoint responsável pela entrada das credenciais do usuário (Username e Password), bloqueio, caso não esteja autenticado, ou geraçao do token JWT e envio/retorno para o client solicitante.
    2.2.3 - **DevicesController** - Endpoint exposto a requisições que possuem credenciais validadas por meio do Token inseridos no Header da mesma
  2.3 - Projeto Application
