@@ -1,15 +1,14 @@
 # Desafio Von Braun Labs
-# Para essa solução utilizamos as seguintes etapas:
-**Servidor da Api de consumo**
-1. **JsonServer** para colocar a API hipotética (Community IoT Device, ou CIotD) padrão OpenApi  
- 1.1 - Criei um servidor local com JsonServer com um comando "npm install -g json-server"  
- 1.2 - Criei um arquivo db.json e coloquei nesse servidor, como chave principal "device" correspondendo assim o endpoint "/device"  
- 1.3 - Coloquei para executar o comando "json-server --watch db.json --port 3000"  
+# Etapas da solução:
+**Servidor da Api de consumo**  
++ ***JsonServer*** para colocar a API hipotética (Community IoT Device, ou CIotD) padrão OpenApi;
++ Criei um servidor local com JsonServer com um comando "npm install -g json-server";
++ Criei um arquivo db.json e coloquei nesse servidor, como chave principal "device" correspondendo assim o endpoint "/device";
++ Coloquei para executar o comando "json-server --watch db.json --port 3000";  
 
 **Backend C# - Solução Consumidora CIoTD**  
-2. Para criação de um Backend a ser desenvolvido em AspnetCore 8.0 C# utilizei na solução "**CIoTD**" com a pretenção de separação de responsabilidades sendo:  
-  
-  2.2 - Projeto API **(CIoTD.API)**  
+Para um Backend utilizei a versão AspnetCore 8.0 C# nomeando como: "**CIoTD**" com a pretenção de separação de responsabilidades sendo:  
+ + Projeto API **(CIoTD.API)**  
   ***Pacotes instalados***:  
     a) **Microsoft.AspNetCore.Authentication.JwtBearer** e **System.IdentityModel.Tokens.Jwt**, pois com essas bibliotecas torna-se possível a funcionalidade de autenticação com JWT Bearer e a criação e manipulação de tokens JWT respectivamente  
     b) **Microsoft.AspNetCore.Identity.EntityFrameworkCore** Com instalação desse ORM temos as classes necessárias para gerenciar Usuários, Roles e a autenticação dos mesmo no sistema, para simplificar utilizamos outra biblioteca **Microsoft.EntityFrameworkCore.InMemory** que é um provedor de Entity Framework Core que usa um banco de dados em memória  
