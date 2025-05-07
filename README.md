@@ -11,4 +11,6 @@ Para essa solução utilizamos as seguintes etapas:
      2.2.1 - Precisei instalar os pacotes:
            * **Microsoft.AspNetCore.Authentication.JwtBearer** e **System.IdentityModel.Tokens.Jwt**, pois com essas bibliotecas torna-se possível a funcionalidade de autenticação com JWT Bearer e a criação e manipulação de tokens JWT respectivamente;
            * **Microsoft.AspNetCore.Identity.EntityFrameworkCore** Com instalação desse ORM temos as classes necessárias para gerenciar Usuários, Roles e a autenticação dos mesmo no sistema, para simplificar utilizamos outra biblioteca **Microsoft.EntityFrameworkCore.InMemory** que é um provedor de Entity Framework Core que usa um banco de dados em memória.
+           * Também inclui a biblioteca **Microsoft.Extensions.Http** que fornece abstrações para trabalhar com requisições HTTP.
+   
 4. Criação Frontend será desenvolvido em angular 19
