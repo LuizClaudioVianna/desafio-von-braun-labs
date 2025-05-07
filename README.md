@@ -47,35 +47,13 @@
 
    ***Estrutura da Aplicação***:  
    a) "**/src/app/pages**": Localização de todos os components que chamamos de páginas  
-   b) "**/src/app/resources**": Localização dos seguintes recursos:
-    + interceptors - Para essa aplicação criei o "**authInterceptor**", ele é o responsável por interceptar as requisições http e adicionar um header chamado "**Authorization**", forçando que somente usuários credenciados possam acessar os endpoints da API;
-    + interfaces - Todos os modelos de tela que fazem referencia ao negócio da aplicação;
-    + models - Foram as classes criadas para serem usadas nas requisições;
-    + services - Localização das classes que executam as chamadas http para a **solução API consumidora CIoTD**
-   c) Nessa versão do angular foi necessária a configuração dos pacotes instalados e essa configuração fica no caminho "app/app.config.ts"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   b) "**/src/app/resources**": Localização dos seguintes recursos:  
+    + interceptors - Para essa aplicação criei o "**authInterceptor**", ele é o responsável por interceptar as requisições http e adicionar um header chamado "**Authorization**", forçando que somente usuários credenciados possam acessar os endpoints da API;  
+    + interfaces - Todos os modelos de tela que fazem referencia ao negócio da aplicação;  
+    + models - Foram as classes criadas para serem usadas nas requisições;  
+    + services - Localização das classes que executam as chamadas http para a **solução API consumidora CIoTD**;  
+   c) A configuração das rotas da aplição está no caminho "**app/app.config.ts**";  
+   d) Nessa versão do angular foi necessária a configuração dos pacotes instalados e essa configuração fica no caminho "**app/app.config.ts**"
 
 
 
