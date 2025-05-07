@@ -15,20 +15,18 @@ import { ICommand } from '../../resources/interfaces/command.interface';
 })
 export class DeviceDetailsComponent {
   detail: IDevice | null = null;
+  idDevice!: string | undefined;
   @Input() command: ICommand | undefined;
 
   constructor(private router: Router) {
     // Forçar a navegação se o estado estiver vazio (acesso direto à rota)
     if (this.router.getCurrentNavigation()?.extras?.state?.['item']) {
       this.detail = this.router.getCurrentNavigation()?.extras?.state?.['item'] as any;
+      this.idDevice = this.detail?.id.toString();
     } else {
       // Redirecionar para a lista ou exibir uma mensagem de erro
       this.router.navigate(['/devices-list']);
     }
-  }
-
-  doExecutaCommand(command: ICommand) {
-    this.router.navigate(['/device-execution'], { state: { item: command } });
   }
 
   getFormatValue(command: ICommand) {
@@ -49,4 +47,14 @@ export class DeviceDetailsComponent {
       return 'N/A';
     }
   }
+
+  doExecutaCommand(idDevice: string | undefined, command: ICommand) {
+    this.router.navigate(['/device-execution'], {
+      state: {
+        item: command,
+        idDevice: idDevice
+      }
+    });
+  }
+
 }

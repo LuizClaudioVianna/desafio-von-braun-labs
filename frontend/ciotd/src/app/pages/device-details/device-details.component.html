@@ -29,8 +29,9 @@
                             <td>{{command.description}}</td>
                             <td>{{command.result}}</td>
                             <td>{{ getFormatValue(command) }}</td>
-                            <td >
-                                <p-button label="Executar" severity="warn" (onClick)="doExecutaCommand(command)" />
+                            <td>
+                                <p-button label="Executar" severity="warn"
+                                    (onClick)="doExecutaCommand(idDevice,command)" />
                             </td>
                         </tr>
                     </table>

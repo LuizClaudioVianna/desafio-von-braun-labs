@@ -18,6 +18,7 @@ import { AlertService } from '../../resources/services/alert.service';
   styleUrls: ['./device-execution.component.scss'],
 })
 export class DeviceExecutionComponent {
+  @Input() idDevice: string | null = null;
   @Input() command: ICommand | null = null;
   selectedCommandIndex: number | null = null;
   parameter: Parameter = { name: '', description: '', type: '' };
@@ -25,22 +26,47 @@ export class DeviceExecutionComponent {
   messageTitle: string = "";
 
   constructor(private router: Router,
-    private comunicationTelnet: ComunicationTelnetService,
+    private comunicationTelnetService: ComunicationTelnetService,
     private alertService: AlertService) {
-    
-    if (this.router.getCurrentNavigation()?.extras?.state?.['item']) {
+
+    if (this.router.getCurrentNavigation()?.extras?.state?.['item'] && this.router.getCurrentNavigation()?.extras?.state?.['idDevice']) {
+      this.idDevice = this.router.getCurrentNavigation()?.extras?.state?.['idDevice'] as string;
       this.command = this.router.getCurrentNavigation()?.extras?.state?.['item'] as any;
     } else {
-    
+
       this.router.navigate(['/device-details']);
     }
   }
 
+  montarStringEnvio(comando: string, parametros: Parameter): string {
+    const valoresParametros: string[] = [];
+
+    // Itera sobre as propriedades do objeto 'parametros'
+    for (const key in parametros) {
+      if (parametros.hasOwnProperty(key)) {
+        const value = parametros[key];
+        // Adiciona o valor ao array de valores (certificando-se de que é uma string)
+        if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+          valoresParametros.push(String(value));
+        }
+      }
+    }
+
+    // Junta o comando com os valores dos parâmetros, separando por \b
+    const elementos = [comando, ...valoresParametros];
+    const stringComBarraB = elementos.join('\b');
+
+    // Adiciona o terminador de fim de linha \r
+    const stringFinalizada = `${stringComBarraB}\r`;
+
+    return stringFinalizada;
+  }
+
   doSendParams() {
-    this.comunicationTelnet.doAComunicationTelnet(this.parameter).subscribe(data => {
-      this.messageTitle = data.token;
+    let stringEnvioMontada = this.montarStringEnvio(`${this.idDevice}.${this.command?.command.command}`, this.parameter);
+    this.comunicationTelnetService.doAComunicationTelnet(stringEnvioMontada).subscribe(data => {
+      this.messageTitle = data.token.replaceAll('\b', '\\b').replace('\r', '\\r');
       this.alertService.success(this.messageTitle)
-      console.log(data);
     },
       (httpError) => {
         this.messageTitle = httpError.name;

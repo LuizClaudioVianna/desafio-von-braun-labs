@@ -12,9 +12,7 @@ export class ComunicationTelnetService {
     API: string = 'https://localhost:7067/api';
     constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
-    public doAComunicationTelnet(parameter: Parameter): Observable<ResponseComunicationTelnet> {
-
-
-        return this.httpClient.post<ResponseComunicationTelnet>(`${this.API}/Devices`, parameter);
+    public doAComunicationTelnet(stringMontada: string): Observable<ResponseComunicationTelnet> {
+        return this.httpClient.post<ResponseComunicationTelnet>(`${this.API}/Devices`, { stringMontada });
     }
 }

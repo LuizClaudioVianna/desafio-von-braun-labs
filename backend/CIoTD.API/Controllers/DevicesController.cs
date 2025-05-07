@@ -67,7 +67,7 @@ namespace MinhaApiComJwt.Controllers
         public IActionResult ExecuteTelnet([FromBody] ComunicationTelnetDto Dto)
         {
             
-            return Ok(new TokenDto { Token = Dto.Name });
+            return Ok(new TokenDto { Token = Dto.stringMontada });
         }
     }
 }
