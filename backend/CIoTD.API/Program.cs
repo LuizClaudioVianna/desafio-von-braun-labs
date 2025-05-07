@@ -19,7 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("InMemoryDb"));
 
-//Teste
+
 builder.Services.AddSwaggerGen(c =>
  {
      c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sua API de Dispositivos", Version = "v1" });
@@ -51,12 +51,9 @@ builder.Services.AddSwaggerGen(c =>
             }
         });
  });
-//Fim teste
-
 
 // Adicionar serviço para fazer requisições HTTP
 builder.Services.AddHttpClient();
-
 
 
 var app = builder.Build();
