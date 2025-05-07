@@ -3,17 +3,21 @@ import { Router } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { TableModule, Table } from 'primeng/table';
 
 import { IDevice } from '../../resources/interfaces/device.interface';
 import { ICommand } from '../../resources/interfaces/command.interface';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 
 @Component({
   selector: 'app-device-details',
-  imports: [CommonModule, CardModule, ButtonModule],
+  imports: [CommonModule, CardModule, ButtonModule, TableModule, IconFieldModule, InputIconModule],
   templateUrl: './device-details.component.html',
   styleUrl: './device-details.component.scss'
 })
-export class DeviceDetailsComponent {
+export class DeviceDetailsComponent implements OnInit{
+  loading: boolean = true;
   detail: IDevice | null = null;
   idDevice!: string | undefined;
   @Input() command: ICommand | undefined;
@@ -27,6 +31,9 @@ export class DeviceDetailsComponent {
       // Redirecionar para a lista ou exibir uma mensagem de erro
       this.router.navigate(['/devices-list']);
     }
+  }
+  ngOnInit(): void {
+    this.loading = false;
   }
 
   getFormatValue(command: ICommand) {
@@ -56,5 +63,14 @@ export class DeviceDetailsComponent {
       }
     });
   }
+
+   onGlobalFilter(table: Table, event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      if (filterValue.length >= 3) {
+        table.filterGlobal(filterValue, 'contains');
+      } else if (filterValue.length === 0) {
+        table.reset()
+      }
+    }
 
 }
