@@ -22,12 +22,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddSwaggerGen(c =>
  {
-     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sua API de Dispositivos", Version = "v1" });
+     c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Devices", Version = "v1" });
 
      // Define o esquema de segurança "Bearer"
      c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
      {
-         Description = "Insira o Token JWT desta forma: Bearer {seu token}",
+         Description = "Insira o Token JWT desta forma: {seu token}",
          Name = "Authorization",
          In = ParameterLocation.Header,
          Type = SecuritySchemeType.Http,
