@@ -6,6 +6,9 @@
                     <p><i class="fa-solid fa-plug fa-4x" style="color: #007ad9;"></i></p>
                     <h2>Device Execution - ID: {{idDevice}}</h2>
                 </div>
+                <div class="col-12">
+                    <p-button label="Voltar" severity="warn" (onClick)="doBack()" />
+                </div>
                 <div class="field col-12 md:col-2">
                     <label for="">Command:</label>
                     <h4>{{command?.command?.command}}</h4>

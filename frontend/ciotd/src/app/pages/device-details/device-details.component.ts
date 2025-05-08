@@ -16,7 +16,8 @@ import { InputIconModule } from 'primeng/inputicon';
   templateUrl: './device-details.component.html',
   styleUrl: './device-details.component.scss'
 })
-export class DeviceDetailsComponent implements OnInit{
+export class DeviceDetailsComponent implements OnInit {
+
   loading: boolean = true;
   detail: IDevice | null = null;
   idDevice!: string | undefined;
@@ -55,6 +56,10 @@ export class DeviceDetailsComponent implements OnInit{
     }
   }
 
+  doBack() {
+    this.router.navigate(['devices-list']);
+  }
+
   doExecutaCommand(idDevice: string | undefined, command: ICommand) {
     this.router.navigate(['/device-execution'], {
       state: {
@@ -64,13 +69,13 @@ export class DeviceDetailsComponent implements OnInit{
     });
   }
 
-   onGlobalFilter(table: Table, event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      if (filterValue.length >= 3) {
-        table.filterGlobal(filterValue, 'contains');
-      } else if (filterValue.length === 0) {
-        table.reset()
-      }
+  onGlobalFilter(table: Table, event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    if (filterValue.length >= 3) {
+      table.filterGlobal(filterValue, 'contains');
+    } else if (filterValue.length === 0) {
+      table.reset()
     }
+  }
 
 }

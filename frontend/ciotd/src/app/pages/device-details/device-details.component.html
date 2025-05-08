@@ -7,17 +7,22 @@
                     <h2>Device Details - {{detail?.identifier}}</h2>
                 </div>
                 <div class="col-12">
+                    <p-button label="Voltar" severity="warn" (onClick)="doBack()" />
+                </div>
+                <div class="col-12">
                     <label for="">Manufacturer: </label>
                     <label for="">{{detail?.manufacturer}}</label>
                 </div>
                 <div class="col-12">
                     <label for="">Description: </label>
                     <label for="">{{detail?.description}}</label>
+
                 </div>
                 <div class="col-12">
                     <p-table #dt2 [value]="detail?.commands ?? []" dataKey="id" [rows]="10"
                         [rowsPerPageOptions]="[10, 25, 50]" [loading]="loading" [paginator]="true"
-                        [globalFilterFields]="['operation', 'description','result']" [tableStyle]="{ 'min-width': '75rem' }">
+                        [globalFilterFields]="['operation', 'description','result']"
+                        [tableStyle]="{ 'min-width': '75rem' }">
                         <ng-template #caption>
                             <div class="flex">
                                 <p-iconfield iconPosition="left" class="ml-auto">

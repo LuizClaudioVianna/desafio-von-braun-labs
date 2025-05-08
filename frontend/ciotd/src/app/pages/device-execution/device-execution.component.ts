@@ -18,6 +18,7 @@ import { AlertService } from '../../resources/services/alert.service';
   styleUrls: ['./device-execution.component.scss'],
 })
 export class DeviceExecutionComponent {
+
   @Input() idDevice: string | null = null;
   @Input() command: ICommand | null = null;
   selectedCommandIndex: number | null = null;
@@ -60,6 +61,10 @@ export class DeviceExecutionComponent {
     const stringFinalizada = `${stringComBarraB}\r`;
 
     return stringFinalizada;
+  }
+
+  doBack() {
+    this.router.navigate(['devices-list']);
   }
 
   doSendParams() {
