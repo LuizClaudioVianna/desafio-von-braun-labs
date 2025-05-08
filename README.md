@@ -36,6 +36,7 @@ Para um Backend utilizei a versão AspnetCore 8.0 C# nomeando como: "**CIoTD**" 
 
  + Projeto Infra **(CIoTD.Infra)**
    a) Localização do contexto da aplicação, classe onde ORM (EntityFramework) realiza a criação do usuário **(Username = "admin" e Password = "admin123!")** em memória para permitir o login na aplicação.
+ + **Obs. A Documentação da API no swagger:** https://localhost:7067/swagger/index.html
 
 **Frontend Angular 19 - Solução Frontend Community IoT Device - CIoTD**  
 ***Pacotes instalados***:  
